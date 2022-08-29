@@ -1,0 +1,40 @@
+nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  
+  max-width: 700px;
+	margin:auto
+}
+.nav-container{
+  background-color: cornflowerblue;
+}
+
+.header {
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.logo img{
+  width: 50px;
+  color: whitesmoke;
+}
+
+.greeting, .logo{
+  display: flex;
+  width: 200px;
+  justify-content: center;
+}
+.greeting{
+  align-items: center;
+  justify-content: space-around;
+
+  a{
+    text-decoration: none;
+    color: whitesmoke;
+  }
+}
+

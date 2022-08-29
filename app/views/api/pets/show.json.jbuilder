@@ -1,0 +1,1 @@
+json.extract! @pet :name, :species, :bio, :birthdate

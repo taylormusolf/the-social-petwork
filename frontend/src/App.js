@@ -1,9 +1,10 @@
-
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <>
-      <h1>Welcome to the Social Petwork</h1>
+      <NavBar/>
+      <h3>Welcome Pets!</h3>
     </>
   );
 }
