@@ -5,6 +5,7 @@ import App from './App';
 import configureStore from './store';
 import { Provider } from 'react-redux';
 import { restoreSession } from './store/csrf';
+import { BrowserRouter } from 'react-router-dom';
 
 const initialState = {};
 
@@ -17,9 +18,11 @@ window.store = store;
 const initializeApp = () => {
   ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
   );

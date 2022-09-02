@@ -11,14 +11,14 @@ class ApplicationController < ActionController::API
 
 
   def require_logged_in
-    if logged_in?
-      render json: {errors: ['Must be logged in']}, status: :unathorized #gives 403
+    if !logged_in?
+      render json: {errors: ['Must be logged in']}, status: :unauthorized #gives 403
     end
   end
 
   def require_logged_out
-    unless logged_in?
-      render json: {errors: ['Must be logged out']}, status: :unathorized #gives 403
+    if logged_in?
+      render json: {errors: ['Must be logged out']}, status: :unauthorized #gives 403
     end
 
   end

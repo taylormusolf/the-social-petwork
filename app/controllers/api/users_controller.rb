@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  wrap_paramenters include: User.attribute_name ['password'] #will wrap a non-existing columns as well
+  wrap_parameters include: User.attribute_names + ['password'] #will wrap a non-existing columns as well
 
   def index
     @users = User.all
@@ -22,10 +22,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def update
-    user = current_user
+  # def update
+  #   user = current_user
     
-  end
+  # end
 
   private
   def user_params

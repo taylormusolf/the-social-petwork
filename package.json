@@ -1,0 +1,27 @@
+{
+  "name": "the-social-petwork",
+  "version": "1.0.0",
+  "description": "The Social Petwork",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylormusolf/the-social-petwork.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylormusolf/the-social-petwork/issues"
+  },
+  "homepage": "https://github.com/taylormusolf/the-social-petwork#readme",
+  "engines": {
+    "node": "16.x"
+  }
+}
