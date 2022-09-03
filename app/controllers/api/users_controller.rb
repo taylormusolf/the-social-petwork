@@ -29,7 +29,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password) #could add password_confirmation
+    params.require(:user).permit(:email, :password, :lname, :fname) #could add password_confirmation
     # {user: {email: , password: }}
     #({username: 'bob', password: 'password'}) also works now with auto wrapping
 

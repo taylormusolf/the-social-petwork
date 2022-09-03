@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { Provider } from 'react-redux';
-import { restoreSession } from './store/csrf';
+import csrfFetch, { restoreSession} from './store/csrf';
 import { BrowserRouter } from 'react-router-dom';
 
 const initialState = {};
@@ -12,7 +12,10 @@ const initialState = {};
 const store = configureStore(initialState);
 
 // testing
-window.store = store;
+if (process.env.NODE_ENV !== 'production') {
+  window.store = store;
+  window.csrfFetch = csrfFetch;
+}
 //
 
 const initializeApp = () => {
@@ -28,5 +31,12 @@ const initializeApp = () => {
   );
 } 
 
-restoreSession().then(initializeApp);
+if (
+  sessionStorage.getItem("currentUser") === null ||
+  sessionStorage.getItem("X-CSRF-Token") === null 
+) {
+  restoreSession().then(initializeApp);
+} else {
+  initializeApp();
+}
 

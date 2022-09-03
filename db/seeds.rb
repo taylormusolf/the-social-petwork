@@ -12,8 +12,13 @@ User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('pets')
 
+p 'Seeding Users...'
+owner1 = User.create!(fname: "De", lname: "Mouser", email: "demo@demouser.com", password: "123456")
+owner2 = User.create!(fname: "Taylor", lname: "Musolf", email: "taylor@taylor.com", password: "123456")
 
-owner1 = User.create!(fname: "Taylor", lname: "Musolf", email: "taylor@taylor.com", password: "123456")
+
+p 'Seeding Pets...'
+pet1 = Pet.create!(name: "Leo", owner_id: owner2.id, species: "dog", bio: "The fluffiest dog around", birthdate: "12/13/2016")
 
 
-pet1 = Pet.create!(name: "Leo", owner_id: owner1.id, species: "dog", bio: "The fluffiest dog around", birthdate: "12/13/2016")
+p 'Finished Seeding!'
