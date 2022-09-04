@@ -5,15 +5,23 @@
 
   input{
     margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: lightgray;
   }
   input[type='submit']{
     width: 75px;
+    margin-top: 20px;
   }
 }
 
 .demouser-button{
   width: 85px;
   margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: lightgray;
+
 }
 
 .login-form-container{
@@ -23,4 +31,20 @@
     font-weight: 700;
     font-size: large;
   }
+  .errors{
+    color: red;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.red {
+  input[type='text'], input[type='password']{
+    border-color: red;
+    background-color: pink;
+  }
+  input[type='submit']{
+    margin-top: 10px;
+  }
+
 }

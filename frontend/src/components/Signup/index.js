@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {signupUser} from '../../store/userReducer';
 import {getCurrentUser } from '../../store/sessionReducer';
@@ -11,6 +11,7 @@ const Signup = () => {
   const dispatch = useDispatch();
   const[user, setUser] = useState({email: '', password: '', confirmPassword: '', fname: '', lname: ''});
   const [errors, setErrors] = useState([]);
+
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -28,25 +29,27 @@ const Signup = () => {
             data = await res.text(); // Will hit this case if the server is down
           }
           if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
+          else if (data) setErrors(data);
           else setErrors([res.statusText]);
         });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors(['passwords must match']);
   }
 
   return(
     <div className='signup-container'>
       <h1>Signup Here</h1>
       <form className='session-form' onSubmit={handleSubmit}>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <input type='text' placeholder='first name' onChange={(e)=>{setUser({...user, fname: e.target.value})}} value={user.fname}/>
-        <input type='text' placeholder='last name' onChange={(e)=>{setUser({...user, lname: e.target.value})}} value={user.lname}/>
-        <input type='text' placeholder="email" onChange={(e)=>{setUser({...user, email: e.target.value})}} value={user.email}/>
-        <input type='password' placeholder="password" onChange={(e)=>{setUser({...user, password: e.target.value})}} value={user.password}/>
-        <input type='password' placeholder="confirm password"onChange={(e)=>{setUser({...user, confirmPassword: e.target.value})}} value={user.confirmPassword}/>
+        <input className={errors.includes("Fname can't be blank") ? 'red-field' : ''} type='text' placeholder='first name' onChange={(e)=>{setUser({...user, fname: e.target.value})}} value={user.fname}/>
+        {errors.includes("Fname can't be blank") ? <li>first name can't be blank</li> : <li></li>}
+        <input className={errors.includes("Lname can't be blank") ? 'red-field' : ''} type='text' placeholder='last name' onChange={(e)=>{setUser({...user, lname: e.target.value})}} value={user.lname}/>
+        {errors.includes("Lname can't be blank") ? <li>last name can't be blank</li> : <li></li>}
+        <input className={errors.includes("Email can't be blank") ? 'red-field' : ''} type='text' placeholder="email" onChange={(e)=>{setUser({...user, email: e.target.value})}} value={user.email}/>
+        {errors.includes("Email can't be blank") ? <li>email can't be blank</li> : <li></li>}
+        <input className={errors.includes("Password is too short (minimum is 6 characters)") ? 'red-field' : ''} type='password' placeholder="password" onChange={(e)=>{setUser({...user, password: e.target.value})}} value={user.password}/>
+        {errors.includes("Password is too short (minimum is 6 characters)") ? <li>password must be at least 6 characters</li> : <li></li>}
+        <input className={errors.includes("passwords must match") ? 'red-field' : ''} type='password' placeholder="confirm password"onChange={(e)=>{setUser({...user, confirmPassword: e.target.value})}} value={user.confirmPassword}/>
+        {errors.includes("passwords must match") ? <li>passwords must match</li> : <li></li>}
         <input type='submit' value='Signup'/>
       </form>
     </div>

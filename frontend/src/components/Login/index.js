@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginUser, getCurrentUser } from '../../store/sessionReducer';
@@ -10,6 +10,17 @@ const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
+
+
+  useEffect(()=> {
+    const errorsUl = document.querySelector('.session-form')
+    if(errors.length){
+      console.log(errorsUl)
+      errorsUl.classList.add('red')
+    } else {
+      errorsUl.classList.remove('red')
+    }
+  }, [errors])
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -44,12 +55,12 @@ const Login = (props) => {
   return(
     <div className='login-form-container'>
       <h1>Login Here</h1>
-      <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
-      </ul>
       <form className='session-form' onSubmit={handleSubmit}>
         <input type='text' placeholder="email" onChange={(e)=>{setEmail(e.target.value)}} value={email}/>
         <input type='password' placeholder="password" onChange={(e)=>{setPassword(e.target.value)}} value={password}/>
+        <ul className='errors'>
+          {errors.map(error => <li key={error}>{error.toLowerCase()}</li>)}
+        </ul>
         <input type='submit' value='Login'/>
 
       </form>

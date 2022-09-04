@@ -5,5 +5,18 @@
       font-weight: 700;
       font-size: large;
     }
+    .session-form{
+      li{
+        list-style: none;
+        color: red;
+        text-align: center;
+        font-size: 12px;
+        height: 10px;
+      }
+      .red-field{
+        border-color: red;
+        background-color: pink;
+      }
+    }
 
 }
