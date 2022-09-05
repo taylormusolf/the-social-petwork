@@ -1,7 +1,7 @@
 export const restoreSession = async() => {
     let res = await csrfFetch('/api/session');
     let token = res.headers.get('X-CSRF-Token');
-    if (token) sessionStorage.setItem("X-CSRF-Token", csrfToken);
+    if (token) sessionStorage.setItem("X-CSRF-Token", token);
     let data = await res.json();
    
     let currentUser = data.user;
