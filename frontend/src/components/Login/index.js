@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginUser, getCurrentUser } from '../../store/sessionReducer';
 import './index.scss'
-import SignupFormModal from '../Signup/SignupFormModal';
 
 const Login = (props) => {
   const sessionUser = useSelector(getCurrentUser);
@@ -24,11 +23,29 @@ const Login = (props) => {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const demoUser = () => {
+  const demoUser = async() => {
+    const delay = (duration) => {
+      return new Promise((resolve) => {
+        setTimeout(resolve, duration);
+      });
+    } 
+    let emailArr = 'demo@demouser.com'.split('');
+    let passwordArr = '123456'.split('');
+
+    for (let i = 0; i < emailArr.length; i++) {
+      await delay(100)
+      setEmail(emailArr.slice(0,i+1).join(''))
+    }
+    for (let i = 0; i < passwordArr.length; i++) {
+      await delay(100)
+      setPassword(passwordArr.slice(0,i+1).join(''))
+    }
+    await delay(100);
     dispatch(loginUser({
       email: 'demo@demouser.com',
       password: '123456'
     }))
+
   }
 
   const handleSubmit = (e) => {
