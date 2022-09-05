@@ -1,5 +1,7 @@
 import {Switch, Redirect, Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
+import Splash from "./components/Splash";
+
 
 function App() {
   
@@ -9,7 +11,8 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            <h3>Splash</h3>
+            <h1> Splash </h1>
+            {/* <Splash /> */}
           </Route>
           <Route exact path="/pets">
             <h3>Welcome Pets!</h3>
