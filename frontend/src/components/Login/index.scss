@@ -36,6 +36,13 @@
     font-size: 12px;
     text-align: center;
   }
+  header{
+    display: flex;
+    justify-content: space-between;
+    h2{
+      cursor: pointer;
+    }
+  }
 }
 
 .red {

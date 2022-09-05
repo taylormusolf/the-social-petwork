@@ -6,6 +6,7 @@ import configureStore from './store';
 import { Provider } from 'react-redux';
 import csrfFetch, { restoreSession} from './store/csrf';
 import { BrowserRouter } from 'react-router-dom';
+import { ModalProvider } from "./context/Modal";
 
 const initialState = {};
 
@@ -22,9 +23,11 @@ const initializeApp = () => {
   ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <ModalProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ModalProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

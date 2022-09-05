@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { logoutUser, getCurrentUser } from '../../store/sessionReducer';
+import LoginFormModal from '../Login/LoginFormModal';
+
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -23,8 +25,7 @@ const NavBar = () => {
     }else{
       return(
         <div className="greeting">
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <LoginFormModal />
         </div>
       )
     }

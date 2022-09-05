@@ -4,14 +4,14 @@ import {signupUser} from '../../store/userReducer';
 import {getCurrentUser } from '../../store/sessionReducer';
 import { Redirect } from 'react-router-dom';
 import './index.scss'
+import LoginFormModal from '../Login/LoginFormModal';
 
 
-const Signup = () => {
+const Signup = (props) => {
   const sessionUser = useSelector(getCurrentUser);
   const dispatch = useDispatch();
   const[user, setUser] = useState({email: '', password: '', confirmPassword: '', fname: '', lname: ''});
   const [errors, setErrors] = useState([]);
-
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -38,7 +38,11 @@ const Signup = () => {
 
   return(
     <div className='signup-container'>
-      <h1>Signup Here</h1>
+      <header>
+        <h1>Signup Here</h1>
+        <button onClick={props.switchModal}>Login</button>
+        <h2 onClick={props.onClose}>x</h2>
+      </header>
       <form className='session-form' onSubmit={handleSubmit}>
         <input className={errors.includes("Fname can't be blank") ? 'red-field' : ''} type='text' placeholder='first name' onChange={(e)=>{setUser({...user, fname: e.target.value})}} value={user.fname}/>
         {errors.includes("Fname can't be blank") ? <li>first name can't be blank</li> : <li></li>}

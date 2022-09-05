@@ -19,13 +19,13 @@ function App() {
             <h3>Welcome Pets!</h3>
           </Route>
 
-          <Route path="/login">
+          {/* <Route path="/login">
             <Login />
           </Route>
           <Route path="/signup">
             <Signup />
           </Route>
-          <Redirect from="/dogs" to="/cats" />
+          <Redirect from="/dogs" to="/cats" /> */}
 
           <Route>
             <h3>404 No Match!</h3>

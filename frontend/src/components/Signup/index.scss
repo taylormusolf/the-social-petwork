@@ -18,5 +18,11 @@
         background-color: pink;
       }
     }
-
+    header{
+      display: flex;
+      justify-content: space-between;
+      h2{
+        cursor: pointer;
+      }
+    }
 }

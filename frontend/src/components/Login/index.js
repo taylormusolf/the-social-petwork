@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginUser, getCurrentUser } from '../../store/sessionReducer';
 import './index.scss'
+import SignupFormModal from '../Signup/SignupFormModal';
 
 const Login = (props) => {
   const sessionUser = useSelector(getCurrentUser);
@@ -15,7 +16,6 @@ const Login = (props) => {
   useEffect(()=> {
     const errorsUl = document.querySelector('.session-form')
     if(errors.length){
-      console.log(errorsUl)
       errorsUl.classList.add('red')
     } else {
       errorsUl.classList.remove('red')
@@ -54,7 +54,11 @@ const Login = (props) => {
 
   return(
     <div className='login-form-container'>
-      <h1>Login Here</h1>
+      <header>
+        <h1>Login Here</h1>
+        <button onClick={props.switchModal}>Signup</button>
+        <h2 onClick={props.onClose}>x</h2>
+      </header>
       <form className='session-form' onSubmit={handleSubmit}>
         <input type='text' placeholder="email" onChange={(e)=>{setEmail(e.target.value)}} value={email}/>
         <input type='password' placeholder="password" onChange={(e)=>{setPassword(e.target.value)}} value={password}/>
