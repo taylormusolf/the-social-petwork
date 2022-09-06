@@ -11,8 +11,8 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/">
-            <h1> Splash </h1>
-            {/* <Splash /> */}
+            {/* <h1> Splash </h1> */}
+            <Splash />
           </Route>
           <Route exact path="/pets">
             <h3>Welcome Pets!</h3>
