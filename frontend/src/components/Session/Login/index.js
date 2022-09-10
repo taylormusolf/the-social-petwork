@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { loginUser, getCurrentUser } from '../../store/sessionReducer';
+import { loginUser, getCurrentUser } from '../../../store/sessionReducer';
 import './index.scss'
 
 const Login = (props) => {

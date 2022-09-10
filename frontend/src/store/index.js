@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import petReducer from './petReducer';
 import sessionReducer from './sessionReducer';
 import userReducer from './userReducer';
-import errorReducer from './errorReducer';
 
 const entitiesReducer = combineReducers({
   pets: petReducer,
@@ -13,8 +12,7 @@ const entitiesReducer = combineReducers({
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  entities: entitiesReducer,
-  errors: errorReducer
+  entities: entitiesReducer
 });
 
 

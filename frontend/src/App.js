@@ -1,6 +1,8 @@
 import {Switch, Redirect, Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Splash from "./components/Splash";
+import PetIndex from "./components/PetIndex";
+import PetShow from "./components/PetShow";
 
 
 function App() {
@@ -15,7 +17,10 @@ function App() {
             <Splash />
           </Route>
           <Route exact path="/pets">
-            <h3>Welcome Pets!</h3>
+            <PetIndex />
+          </Route>
+          <Route exact path="/pets/:petId">
+            <PetShow />
           </Route>
           <Route>
             <h3>404 No Match!</h3>

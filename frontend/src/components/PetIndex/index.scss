@@ -1,0 +1,15 @@
+.pet-index-ul{
+    display: flex;
+    margin: 20px;
+    img{
+        width: 100px;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+}
+
+.pet-index-container{
+    display: flex;
+    flex-direction: column;
+
+}

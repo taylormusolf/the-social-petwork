@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { getCurrentUser } from '../../store/sessionReducer';
 import { Redirect } from 'react-router-dom';
-import Carousel from "react-elastic-carousel"
 import './index.scss'
 
 const Splash = () => {

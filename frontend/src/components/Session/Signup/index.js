@@ -1,10 +1,9 @@
 import {useState,useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {signupUser} from '../../store/userReducer';
-import {getCurrentUser } from '../../store/sessionReducer';
+import {signupUser} from '../../../store/userReducer';
+import {getCurrentUser } from '../../../store/sessionReducer';
 import { Redirect } from 'react-router-dom';
 import './index.scss'
-import LoginFormModal from '../Login/LoginFormModal';
 
 
 const Signup = (props) => {

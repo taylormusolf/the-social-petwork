@@ -1,1 +1,1 @@
-json.extract! @pet, :name, :species, :bio, :birthdate, :owner_id
+json.partial! 'pet', pet: @pet

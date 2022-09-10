@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { logoutUser, getCurrentUser } from '../../store/sessionReducer';
-import LoginFormModal from '../Login/LoginFormModal';
+import LoginFormModal from '../Session/Login/LoginFormModal';
 
 
 const NavBar = () => {

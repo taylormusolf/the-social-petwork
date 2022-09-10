@@ -6,21 +6,18 @@ export const RECEIVE_PETS = 'RECEIVE_PETS';
 
 
 export const fetchPet = (petId) => async dispatch => {
-  const data = await csrfFetch(`api/pets/${petId}`);
-  if (data.ok){
-    const res = await data.json()
-  } else {
-    //error handling
-  }
+  const data = await csrfFetch(`/api/pets/${petId}`);
+  const res = await data.json()
   dispatch(receivePet(res))
 }
 export const fetchPets = () => async dispatch => {
-  const data = await csrfFetch("api/pets");
-  if (data.ok){
-    const res = await data.json()
-  } else {
-    //error handling
-  }
+  const data = await csrfFetch("/api/pets");
+  // if (data.ok){
+  //   const res = await data.json()
+  // } else {
+  //   //error handling
+  // }
+  const res = await data.json()
   dispatch(receivePets(res))
 }
 
@@ -32,10 +29,10 @@ const receivePet = (pet) => {
   }
 }
 
-const receivePets = (pets) => {
+const receivePets = (payload) => {
   return {
     type: RECEIVE_PETS,
-    pets
+    payload
   }
 }
 
@@ -46,7 +43,7 @@ const petReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_PETS:
-      return action.pets
+      return action.payload.pets
 
     case RECEIVE_PET:
       nextState[action.pet.id] = action.pet
