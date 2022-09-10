@@ -12,14 +12,21 @@ const NavBar = () => {
   const [currentUser, setCurrentUser] = useState(selectCurrentUser);
   useEffect(()=>{
     setCurrentUser(selectCurrentUser);
-  }, [selectCurrentUser])
+  }, [selectCurrentUser]);
   
   const greeting = ()=> {
     if(currentUser){
       return (
         <div className="greeting">
-          <h2>Hello, {currentUser.fname}</h2>
-          <button onClick={()=>dispatch(logoutUser())}>Logout</button>
+          <div class="dropdown">
+            <h2>Hello, {currentUser.fname}</h2>
+          <div class="dropdown-content">
+            <h2 className='dropdown-username'>{currentUser.fname} {currentUser.lname}</h2>
+            <div className="logout-button" onClick={()=>dispatch(logoutUser())}>Logout</div>
+          </div>
+      </div>
+          
+          
         </div>  
       )
     }else{

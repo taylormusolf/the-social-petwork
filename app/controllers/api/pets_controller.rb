@@ -2,7 +2,7 @@ class Api::PetsController < ApplicationController
   
   before_action :require_logged_in, only: [:create, :update, :destroy]
   def index
-    @pets = Pet.all
+    @pets = Pet.all.includes(:owner).with_attached_photo
     render :index
   end
 
