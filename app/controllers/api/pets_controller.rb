@@ -1,9 +1,16 @@
 class Api::PetsController < ApplicationController
   
+  wrap_parameters include: Pet.attribute_names + ['ownerId'] #will wrap a non-existing columns as well
+
   before_action :require_logged_in, only: [:create, :update, :destroy]
   def index
-    @pets = Pet.all.includes(:owner).with_attached_photo
-    render :index
+    if params[:owner_id]
+      @pets = Pet.where(owner_id: params[:owner_id]).includes(:owner).with_attached_photo
+      render :index
+    else
+      @pets = Pet.all.includes(:owner).with_attached_photo
+      render :index
+    end
   end
 
   def show
@@ -33,6 +40,7 @@ class Api::PetsController < ApplicationController
     @pet = Pet.find_by(id: params[:id])
     if @pet &.destroy
       #redirect
+      head :no_content
     else
       render json: @pet.errors.full_messages, status: 422
     end
@@ -41,7 +49,7 @@ class Api::PetsController < ApplicationController
 
   private
   def pet_params
-    params.require(:pet).permit(:name, :species, :bio, :birthdate)
+    params.require(:pet).permit(:name, :species, :bio, :birthdate, :owner_id)
   end
 
 end

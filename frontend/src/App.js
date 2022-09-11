@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Splash from "./components/Splash";
 import PetIndex from "./components/PetIndex";
 import PetShow from "./components/PetShow";
+import PetForm from "./components/PetForm";
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route exact path="/pets/:petId">
             <PetShow />
+          </Route>
+          <Route exact path="/pet/new">
+            <PetForm />
           </Route>
           <Route>
             <h3>404 No Match!</h3>
