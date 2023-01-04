@@ -19,9 +19,27 @@
      <!-- <meta property="og:url"
        content="http://kickbacker.herokuapp.com/"
      /> -->
+     <style>
+      #map{
+        height: 400px;
+        width: 100%;
+      }
+     </style>
   </head>
   <body>
+    <h1>My Google Map</h1>
+    <div id="map"></div>
+    <script>
+      function initMap(){
+        let options = {
+          zoom: 12,
+          center: {lat: 42.3601, lng: -71.0589}
+        }
+        let map = new google.maps.Map(document.getElementById('map'), options);
+      }
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+  
     <div id="root"></div>
   </body>
 </html>

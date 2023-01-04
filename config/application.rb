@@ -38,7 +38,7 @@ module SocialPetwork
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-      key: '_auth_me_session',
+      key: '_social_petwork_session',
       same_site: :lax, 
       secure: Rails.env.production?
   end

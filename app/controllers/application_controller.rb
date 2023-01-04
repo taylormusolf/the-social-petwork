@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   
-  include ActionController::RequestForgeryProtection
+  include ActionController::RequestForgeryProtection #needed because ActionController::API not base
 
   protect_from_forgery with: :exception
   before_action :snake_case_params, :attach_authenticity_token

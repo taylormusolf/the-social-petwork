@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: social_petwork_production
-  username: social_petwork
-  password: <%= ENV["SOCIAL_PETWORK_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: social_petwork_production
+  # username: social_petwork
+  # password: <%= ENV["SOCIAL_PETWORK_DATABASE_PASSWORD"] %>

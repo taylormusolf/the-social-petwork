@@ -3,7 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Redirect, Link, useParams, useHistory } from 'react-router-dom';
 import { fetchPet, fetchPets, deletePet } from '../../store/petReducer';
 import { getCurrentUser } from '../../store/sessionReducer';
-import './index.scss'
+// import PopupModal from '../confirmationPopup/PopupModal';
+import './index.scss';
 
 const PetShow = props => {
     const history = useHistory();
@@ -30,7 +31,8 @@ const PetShow = props => {
             return(
                 <>
                     <h1>Edit</h1>
-                    <h1 onClick={handleDelete}>Delete</h1>
+                    {/* <PopupModal /> */}
+                    {/* <h1 onClick={handleDelete}>Delete</h1> */}
 
                 </>
             )
