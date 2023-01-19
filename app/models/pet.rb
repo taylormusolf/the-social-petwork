@@ -20,11 +20,12 @@ class Pet < ApplicationRecord
   belongs_to :owner,
     class_name: :User,
     foreign_key: :owner_id
+  
 
   # has_many :posts,
   #   dependent: :destroy
 
-  # has_many :likes,
-  #   dependent: :destroy
+  has_many :likes,
+    dependent: :destroy
   
 end

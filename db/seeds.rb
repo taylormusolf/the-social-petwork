@@ -13,6 +13,9 @@ User.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('pets')
+ActiveRecord::Base.connection.reset_pk_sequence!('posts')
+ActiveRecord::Base.connection.reset_pk_sequence!('likes')
+
 
 p 'Seeding Users...'
 owner1 = User.create!(fname: "De", lname: "Mouser", email: "demo@demouser.com", password: "123456")

@@ -5,3 +5,13 @@ json.pets do
         end
     end
 end
+
+# json.likes do
+#     @pets.each do |pet|
+#         pet.likes.each do |like|
+#             json.set! pet.id do
+#                 json.id like.id
+#             end
+#         end
+#     end
+# end
